@@ -19,7 +19,12 @@ func main() {
 		log.Fatal("Too few arguments")
 	}
 
-	err := cmds.Run(state, commands.NewCommand(os.Args[0], os.Args[1:]))
+	cmdName := os.Args[1]
+	cmdArgs := []string{}
+	if len(os.Args) > 2 {
+		cmdArgs = os.Args[2:]
+	}
+	err := cmds.Run(state, commands.NewCommand(cmdName, cmdArgs))
 	if err != nil {
 		log.Fatal(err)
 	}
