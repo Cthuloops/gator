@@ -7,7 +7,7 @@ import (
 	"gator/internal/config"
 )
 
-func handlerLogin(s *config.State, cmd command) error {
+func HandlerLogin(s *config.State, cmd command) error {
 	if len(cmd.arguments) != 1 {
 		return errors.New("Login expects a single argument, the username")
 	}

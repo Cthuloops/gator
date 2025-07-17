@@ -29,7 +29,7 @@ func (c *Config) SetUser(user *string) error {
 	return nil
 }
 
-func Read() Config {
+func Read() *Config {
 	filePath, err := getConfigPath()
 	if err != nil {
 		log.Fatal("HOME environment variable not set.")
@@ -64,7 +64,7 @@ func Read() Config {
 
 	}
 
-	return data
+	return &data
 }
 
 func write(config Config) error {
